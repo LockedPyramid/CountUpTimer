@@ -52,7 +52,13 @@ function Main() {
 
 function UpdateDisplay() {
     let _minutes = Math.floor(_Time / 60);
-    let _seconds = _Time - _minutes * 60;
+    let _seconds = _Time - (_minutes * 60);
+    if(_seconds < 10){
+        _seconds = "0" + _seconds
+    }
+    if(_minutes <10){
+        _minutes = "0" + _minutes
+    }
     GEBI("Clock").innerHTML = _minutes + ":" + _seconds;
 }
 
@@ -145,6 +151,10 @@ function HideSettings(HideShow) {
         GEBI("SecIn").style.display = "block";
         GEBI("Input").style.display = "flex";
 
+        // Preset buttons
+        GEBI("Preset30").style.display = "block"
+        GEBI("Preset1").style.display = "block"
+        GEBI("Preset5").style.display = "block"
     }
     else if(HideShow == "Hide"){
         GEBI("MusicSelect").style.display = "none";
@@ -162,7 +172,10 @@ function HideSettings(HideShow) {
          GEBI("SecIn").style.display = "none";
          GEBI("Input").style.display = "none";
 
-         
+        // Preset buttons
+        GEBI("Preset30").style.display = "none"
+        GEBI("Preset1").style.display = "none"
+        GEBI("Preset5").style.display = "none"
 
     }
  }
@@ -174,3 +187,7 @@ function HideSettings(HideShow) {
            !isNaN(parseInt(value, 10));
   }
 
+function Preset(Min, Sec){
+    GEBI("MinIn").value = Min;
+    GEBI("SecIn").value = Sec;
+}

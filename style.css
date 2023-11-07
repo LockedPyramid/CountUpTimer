@@ -46,3 +46,9 @@ footer {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
   }
+
+.PresetButtons{
+    padding: 50px;
+    margin: 3px; 
+    size: 200%;
+}
